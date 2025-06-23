@@ -4,25 +4,16 @@ from bs4 import BeautifulSoup
 
 # Define the function to extract backlink words
 def extract_backlink_words_from_elementor_content(blog_url):
-    """
-    Extracts anchor texts (backlink words) from 'elementor-widget-theme-post-content'
-    elements on a given blog URL.
 
-    Args:
-        blog_url (str): The URL of the blog post to scrape.
-
-    Returns:
-        list: A list of extracted backlink anchor texts.
-    """
     backlink_words = []
     try:
-        # Display a status message in the Streamlit app
+
         st.info(f"Attempting to fetch content from: {blog_url}...")
         
         response = requests.get(blog_url, timeout=10) # Added timeout for robustness
         response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
         html_content = response.text
-        st.success("Successfully fetched HTML content.")
+        # st.success("Successfully fetched HTML content.")
 
         soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -33,7 +24,7 @@ def extract_backlink_words_from_elementor_content(blog_url):
             st.warning("No element with class 'elementor-widget-theme-post-content' found on the page.")
             return []
         else:
-            st.write(f"Found {len(content_containers)} container(s) with content.")
+            pass
 
         # Iterate through containers and find links
         for i, container in enumerate(content_containers):
