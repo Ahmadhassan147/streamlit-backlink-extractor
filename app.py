@@ -56,14 +56,14 @@ def extract_backlink_words_from_elementor_content(blog_url):
 # --- Streamlit App Interface ---
 
 st.set_page_config(
-    page_title="Elementor Backlink Extractor",
+    page_title="Backlink Extractor by StrouseHouse",
     page_icon="🔗",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-st.title("🔗 Elementor Backlink Word Extractor")
-st.markdown("Enter the URL of an Elementor-based blog post to extract the anchor texts of its internal/external links.")
+st.header("🔗 Backlink Extractor by StrouseHouse")
+st.markdown("Enter the URL of a blog post to extract its backlinks.")
 
 # Input for the blog URL
 blog_link = st.text_input("Enter the URL of the blog post:", placeholder="e.g., https://example.com/blog-post")
